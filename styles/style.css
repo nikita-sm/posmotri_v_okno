@@ -2,6 +2,11 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  outline: none;
+}
+
+input {
+  appearance: none;
 }
 
 html {
@@ -10,7 +15,7 @@ html {
 
 .page {
   inline-size: 1200px;
-  height: 800px;
+  /* height: 800px; */
   block-size: 100%;
   margin: auto;
   color: #fff;
@@ -43,15 +48,12 @@ ol {
   display: flex;
   justify-content: space-between;
   width: 1140px;
-  height: 534px;
-  /* border: 1px solid red;  */
+  
   margin: 0px auto 0 auto;
-  /* overflow: hidden; */
 }
 
 .result {
-  width: 711px;
-  height: 456px;
+  /* height: 456px; */
   margin-top: 78px;
   display: flex;
   flex-direction: column;
@@ -60,14 +62,14 @@ ol {
 
 .content__details {
   width: 399px;
-  height: 100%;
+  height: 534px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .title {
-  font-family: "Oswald";
+  font-family: "Oswald", sans-serif;
   font-size: 75px;
   font-weight: 700;
   line-height: 71px;
@@ -78,7 +80,7 @@ ol {
 }
 
 .content__accent {
-  font-family: "Oswald";
+  font-family: "Oswald", sans-serif;
   font-size: 75px;
   font-weight: 700;
   line-height: 71px;
@@ -89,18 +91,7 @@ ol {
 .content__list {
   width: 100%;
   height: 100%;
-  overflow-y: scroll;
-  padding: 30px 5px;
-  padding-bottom: 0px;
-}
-
-.content__list::-webkit-scrollbar {
-  display: none;
-}
-
-.content__list {
-  -ms-overflow-style: none;  /* IE и Edge */
-  scrollbar-width: none;  /* Firefox */
+  overflow: auto;
 }
 
 .search-form {
@@ -115,9 +106,9 @@ ol {
 
 .search-form__textfield {
   border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.7);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
-  font-family: "Fira Sans Condensed";
+  border-top: 1px solid rgba(255, 255, 255);
+  border-bottom: 1px solid rgba(255, 255, 255);
+  font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 22px;
@@ -125,6 +116,12 @@ ol {
   background: transparent;
   width: 225px;
   height: 27px;
+  color: #fff;
+}
+
+.search-form__textfield::placeholder {
+  color: #fff;
+  opacity: 0.7;
 }
 
 .search-form__fieldset:nth-child(2) {
@@ -133,7 +130,7 @@ ol {
 }
 
 .search-form__fieldset-title {
-  font-family: "Fira Sans Condensed";
+  font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 22px;
@@ -143,6 +140,7 @@ ol {
 
 .search-form__label {
   display: flex;
+  align-items: center;
 }
 
 .search-form__label:has(:focus-visible) {
@@ -150,7 +148,7 @@ ol {
   outline-offset: 3px;
 }
 
-.search-form__label:hover {
+.search-form__checkbox-list .search-form__label:hover {
   text-decoration: underline;
 }
 
@@ -183,7 +181,7 @@ ol {
 .button {
   background: transparent;
   border: 1px solid #fff;
-  font-family: "Fira Sans Condensed";
+  font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   font-weight: 700;
   line-height: 22px;
@@ -202,6 +200,7 @@ ol {
 
 .button:hover{
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .search-form__submit-button {
@@ -211,7 +210,7 @@ ol {
 
 
 .result__video-container {
-  width: 100%;
+  width: 711px;
   height: 386px;
 }
 
@@ -219,6 +218,7 @@ ol {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 .content__card-link {
@@ -233,6 +233,7 @@ ol {
 
 .content__card-link:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .content__card-link:focus-visible {
@@ -242,19 +243,19 @@ ol {
 
 .content__video-card-title {
   margin-bottom: 6px;
-  word-wrap: break-word;
-  max-width: 110px;
-  font-family: "Oswald";
+  font-family: "Oswald", sans-serif;
   font-size: 30px;
   font-weight: 700;
   line-height: 30px;
-  text-align: left;
   text-transform: uppercase;
-  hyphens: manual;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 192px;
 }
 
 .content__video-card-description {
-  font-family: "Fira Sans Condensed";
+  font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 16px;
@@ -272,10 +273,10 @@ ol {
 }
 
 .content__video-card-thumbnail {
-  /* width: 194px; */
   min-width: 194px;
   height: 103px;
   object-fit: cover;
+  object-position: center;
 }
 
 .content__video-card-description-container {
@@ -286,15 +287,6 @@ ol {
 .result__video-container, .content__list {
   position: relative;
 }
-
-.preloader {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
 
 .visually-hidden {
   position: absolute;
@@ -317,6 +309,3 @@ ol {
   background: #545050;
 }
 
-input {
-  appearance: none;
-}
