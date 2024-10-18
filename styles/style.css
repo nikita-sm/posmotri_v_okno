@@ -15,7 +15,6 @@ html {
 
 .page {
   inline-size: 1200px;
-  /* height: 800px; */
   block-size: 100%;
   margin: auto;
   color: #fff;
@@ -54,7 +53,6 @@ ol {
 }
 
 .result {
-  /* height: 456px; */
   margin-top: 78px;
   display: flex;
   flex-direction: column;
